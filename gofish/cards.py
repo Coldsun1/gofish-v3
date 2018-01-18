@@ -43,3 +43,17 @@ def check_sets(player):
             for _ in range(4):
                 player.hand.remove(i)
             player.sets.append(i)
+
+def check_win(players, deck):
+    total = len(players)
+    empty = 0
+
+    for player in players:
+        if player.hand == 0:
+            empty += 1
+
+    if deck == 0 and empty == total:
+        print('Somebody won or whatever')
+
+
+    pass
