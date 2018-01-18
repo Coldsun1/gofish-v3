@@ -22,15 +22,19 @@ def test_take_logic():
 
     player1.hand = ['ace', '2', '3', '4', '5', '6', '7']
     player2.hand = ['8', '9', '10', 'jester', 'queen', 'king']
-    deck
 
-    # take single card
+    assert len(player1.hand) == 7
+    assert len(player2.hand) == 6
 
+    meow = logic.take_logic(player1, players, 'take 9 from player2')
 
+    assert len(player1.hand) == 8
+    assert len(player2.hand) == 5
 
-    # take multiple cards
+    player1.hand.append('2')
+    player1.hand.append('2')
 
-    # take from the center deck
+    meow = logic.take_logic(player2, players, 'take 2 from player1')
 
     assert len(player1.hand) == 7
     assert len(player2.hand) == 8
