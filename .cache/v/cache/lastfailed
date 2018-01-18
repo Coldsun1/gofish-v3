@@ -1,0 +1,4 @@
+{
+  "tests/test_cards.py::test_check_for_card": true,
+  "tests/test_understand.py::test_something": true
+}
