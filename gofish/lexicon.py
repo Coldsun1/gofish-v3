@@ -1,5 +1,5 @@
-#from gofish import extras
-import extras
+from gofish import extras
+#import extras
 # ignore everything except players and card types
 
 def scan(players, input_sentence):

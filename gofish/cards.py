@@ -1,6 +1,6 @@
 import random
-#from gofish import extras
-import extras
+from gofish import extras
+#import extras
 
 class Player(object):
     def __init__(self, name):
@@ -24,6 +24,8 @@ def take_cards(asking_player, giving_player, card=None):
             asking_player.hand.append(card)
             giving_player.hand.remove(card)
 
+        print(f"You took {total} {card} card from {giving_player.name}'")
+
 
 def create_deck():
     deck = []
@@ -34,3 +36,10 @@ def create_deck():
 
     random.shuffle(deck)
     return deck
+
+def check_sets(player):
+    for i in extras.types:
+        if player.hand.count(i) == 4:
+            for _ in range(4):
+                player.hand.remove(i)
+            player.sets.append(i)

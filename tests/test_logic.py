@@ -38,3 +38,9 @@ def test_take_logic():
 
     assert len(player1.hand) == 7
     assert len(player2.hand) == 8
+
+def test_win():
+    player1 = cards.Player('player1')
+    player2 = cards.Player('player2')
+
+    

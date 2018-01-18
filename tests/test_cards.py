@@ -35,3 +35,14 @@ def test_basic():
     assert len(player1.hand) == 7
     assert len(player2.hand) == 7
     assert len(deck) == 38
+
+
+def test_check_sets():
+    player1 = cards.Player('player1')
+
+    player1.hand = ['2', '2', '2', '2', 'ace']
+    assert player1.hand == ['2', '2', '2', '2', 'ace']
+
+    cards.check_sets(player1)
+    assert player1.hand == ['ace']
+    assert player1.sets == ['2']

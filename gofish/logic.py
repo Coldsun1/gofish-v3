@@ -1,6 +1,6 @@
 # i want this file to contain all the logic
-#from gofish import cards, lexicon
-import cards, lexicon, extras
+from gofish import cards, lexicon, extras
+#import cards, lexicon, extras
 import os
 
 def main_loop(player, players, deck):
@@ -20,6 +20,7 @@ def main_loop(player, players, deck):
 
         input_sentence = input('> ')
         # pattern for asking for a card: take card other_player
+        # order is not important
 
         if 'exit' in input_sentence:
             break
@@ -29,9 +30,8 @@ def main_loop(player, players, deck):
 
             if took == False:
                 cards.take_cards(player, deck)
+                print(f"Picked up a {player.hand[-1]}")
 
-            print(f'Player: {player.name}')
-            print(f'Cards: {player.hand}')
             print(f'\n{player.name} Your Turn Is Finished!')
             input("Press Enter to Continue!")
             break
