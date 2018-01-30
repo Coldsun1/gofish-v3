@@ -16,6 +16,7 @@ def main_loop(player, players, deck):
         print('- ' * 15)
         print(f'Player: {player.name}')
         print(f'Cards: {player.hand}')
+        print(f'Sets: {player.sets}')
         print('- ' * 15)
 
         input_sentence = input('> ')
@@ -31,6 +32,9 @@ def main_loop(player, players, deck):
             if took == False:
                 cards.take_cards(player, deck)
                 print(f"Picked up a {player.hand[-1]}")
+
+            # check for sets
+            cards.check_sets(player)
 
             print(f'\n{player.name} Your Turn Is Finished!')
             input("Press Enter to Continue!")

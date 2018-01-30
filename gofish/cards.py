@@ -1,4 +1,4 @@
-import random
+import random, os
 from gofish import extras
 #import extras
 
@@ -24,7 +24,7 @@ def take_cards(asking_player, giving_player, card=None):
             asking_player.hand.append(card)
             giving_player.hand.remove(card)
 
-        print(f"You took {total} {card} card from {giving_player.name}'")
+        print(f"You took {total} {card} card from {giving_player.name}")
 
 
 def create_deck():
@@ -37,6 +37,7 @@ def create_deck():
     random.shuffle(deck)
     return deck
 
+
 def check_sets(player):
     for i in extras.types:
         if player.hand.count(i) == 4:
@@ -44,16 +45,20 @@ def check_sets(player):
                 player.hand.remove(i)
             player.sets.append(i)
 
+            print(f'You have one set of {i}\'s')
+
+# test this function more!
 def check_win(players, deck):
-    total = len(players)
-    empty = 0
-
+    total = 0
     for player in players:
-        if player.hand == 0:
-            empty += 1
+        if len(player.hand) == 0:
+            total += 1
 
-    if deck == 0 and empty == total:
-        print('Somebody won or whatever')
+    if len(deck) == 0 and total == 2:
+        temp_dict = {}
 
+        for player in players:
+            temp_dict[player] = len(player.sets)
 
-    pass
+        print(f'{max(temp_dict).name} won with {len(max(temp_dict).sets)} sets.')
+        os.exit(0)

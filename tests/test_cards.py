@@ -46,3 +46,25 @@ def test_check_sets():
     cards.check_sets(player1)
     assert player1.hand == ['ace']
     assert player1.sets == ['2']
+
+# skip
+def te_st_check_win():
+
+    player1 = cards.Player('player1')
+    player2 = cards.Player('player2')
+
+    players = [player1, player2]
+
+    deck = []
+
+    assert len(deck) == 0
+    assert len(player1.hand) == 0
+    assert len(player2.hand) == 0
+
+    player1.sets = ['ace', 'king']
+    player2.sets = ['ace', 'jester', 'queen']
+
+    assert len(player1.sets) == 2
+    assert len(player2.sets) == 3
+
+    assert cards.check_win(players, deck) == player2.name
