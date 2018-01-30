@@ -1,6 +1,6 @@
 import random, os
-from gofish import extras
-#import extras
+#from gofish import extras
+import extras
 
 class Player(object):
     def __init__(self, name):
@@ -54,11 +54,16 @@ def check_win(players, deck):
         if len(player.hand) == 0:
             total += 1
 
-    if len(deck) == 0 and total == 2:
+    if total == 2 and len(deck) == 0:
         temp_dict = {}
 
         for player in players:
-            temp_dict[player] = len(player.sets)
+            temp_dict[len(player.sets)] = player
 
-        print(f'{max(temp_dict).name} won with {len(max(temp_dict).sets)} sets.')
-        os.exit(0)
+        win_name = temp_dict[max(temp_dict)].name.capitalize()
+        win_amount = len(temp_dict[max(temp_dict)].sets)
+        input('Someone Won!!!')
+        os.system('cls')
+        print(f'{win_name} won with {win_amount} sets!')
+
+        exit(0)

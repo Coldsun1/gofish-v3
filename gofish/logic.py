@@ -1,6 +1,6 @@
 # i want this file to contain all the logic
-from gofish import cards, lexicon, extras
-#import cards, lexicon, extras
+#from gofish import cards, lexicon, extras
+import cards, lexicon, extras
 import os
 
 def main_loop(player, players, deck):
@@ -12,6 +12,9 @@ def main_loop(player, players, deck):
     taken = 0
 
     while True:
+        # check if someone won
+        cards.check_win(players, deck)
+
         player.hand = sorted(player.hand, key=extras.types.index)
         print('- ' * 15)
         print(f'Player: {player.name}')

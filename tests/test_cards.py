@@ -61,10 +61,10 @@ def te_st_check_win():
     assert len(player1.hand) == 0
     assert len(player2.hand) == 0
 
-    player1.sets = ['ace', 'king']
+    player1.sets = ['ace', 'king'] #, 'bob', 'meow']
     player2.sets = ['ace', 'jester', 'queen']
 
     assert len(player1.sets) == 2
     assert len(player2.sets) == 3
 
-    assert cards.check_win(players, deck) == player2.name
+    assert cards.check_win(players, deck) == 'Player2 won with 3 sets!'
