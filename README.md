@@ -1,8 +1,10 @@
 # gofish-v3
 
-to take a card just make sure your statment contains the word 'take' and one valid card type and one valid player name.
+To take a card just make sure your statement contains the word 'take' and one valid card type and one valid player name.
+Examples that work: 'take all ace cards from player2', 'player2 fart nugget tool headphones 5 take'
 
-Currentally all mistakes are fatal. At some point i'll add a way to re-enter input if there's a mess up. Examples that work: 'take all ace cards from player2', 'player2 fart nugget tool headphones 5 take'
+
+Currentally all mistakes are fatal. At some point i'll add a way to re-enter input if there's a mess up. 
 I have it set up to ignore all other useless words.
 
 
